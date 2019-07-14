@@ -1,0 +1,5 @@
+cp -r clientTest/main/procedure .
+mkdir work
+mkdir work/file
+mkdir work/tls
+npm i mime
