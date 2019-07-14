@@ -1,1 +1,1 @@
-(cd work; node --experimental-modules ../procedure/start.mjs)
+node --experimental-modules start.mjs
