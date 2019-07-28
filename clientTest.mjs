@@ -21,7 +21,9 @@ async function dirMap(req,res,option={}){
             o['content-type']=t
     }
     res.writeHead(200,o)
-    fs.createReadStream(0,{fd:fh.fd}).pipe(res)
+    fs.createReadStream(0,{fd:fh.fd,autoClose:false}).on('end',()=>
+        fh.close()
+    ).pipe(res)
     return 1
 }
 export default{dirMap}
