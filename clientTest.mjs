@@ -1,5 +1,5 @@
 import fs from'fs'
-import mime from'mime/lite'
+import mime from'mime/lite.js'
 async function dirMap(req,res,option={}){
     let p=req.url.substring(1)
     let fh
