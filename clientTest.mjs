@@ -10,8 +10,10 @@ async function dirMap(req,res,option={}){
             return 0
         throw e
     }
-    if(!(await fh.stat()).isFile())
+    if(!(await fh.stat()).isFile()){
+        fh.close()
         return 0
+    }
     let o={}
     if(option.mime){
         let t=mime.getType(p)
