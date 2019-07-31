@@ -1,6 +1,6 @@
 import fs from'fs'
 import mime from'mime/lite.js'
-import afs from'./fs.mjs'
+import afs from'@anliting/fs'
 async function dirMap(req,res,option={}){
     let p=req.url.substring(1),s
     try{
