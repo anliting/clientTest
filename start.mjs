@@ -1,7 +1,7 @@
 import fs from'fs'
 import http from'http'
 import https from'https'
-import clientTest from'./clientTest.mjs'
+import clientTest from'./start.d/clientTest.mjs'
 let server=http.createServer()
 /*https.createServer({
     key:fs.readFileSync('key'),
