@@ -1,0 +1,7 @@
+*
+*/
+!.gitignore
+!setup
+!start
+!start.d/
+!start.mjs
