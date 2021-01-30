@@ -1,2 +1,2 @@
-npm i mime @anliting/fs
+npm i mime anliting/core
 mkdir file

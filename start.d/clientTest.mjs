@@ -1,13 +1,13 @@
 import fs from'fs'
 import mime from'mime/lite.js'
-import afs from'@anliting/fs'
+import core from'@anliting/core'
 import url from'url'
 async function dirMap(req,res,option={}){
     let p=(new url.URL(req.url,'http://a')).pathname.substring(1),s
     try{
-        s=await afs.createReadStream(`file/${p}`)
+        s=await core.createReadStream(`file/${p}`)
     }catch(e){
-        if(e==afs.createReadStream.badPath)
+        if(e==core.createReadStream.badPath)
             return
         throw e
     }
