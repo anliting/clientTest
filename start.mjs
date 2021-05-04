@@ -1,22 +1,20 @@
 import fs from'fs'
-import http from'http'
-import https from'https'
-import net from'net'
-import urlModule from'url'
-import clientTest from'./start.d/clientTest.mjs'
+import http2 from'http2'
+import url from'url'
+import aHttp from '@anliting/http'
 let listen=[1100]
-let server=http.createServer()
-/*https.createServer({
-    key:fs.readFileSync('key'),
-    cert:fs.readFileSync('crt'),
-})*/
-server.on('request',async(req,res)=>{
-    if(await clientTest.dirMap(req,res,{mime:1}))
+http2.createSecureServer({
+    key:fs.readFileSync('tls/key'),
+    cert:fs.readFileSync('tls/crt'),
+}).on('stream',async(stream,header)=>{
+    let p=(new url.URL(header[':path'],'http://a')).pathname
+    if(await aHttp.dirMap(
+        stream,'file',p,{mime:1}
+    ))
         return
-    res.writeHead(404)
-    res.end()
-})
-server.listen(...listen)
-let url=new urlModule.URL('http://[::1]')
-url.port=listen[0]
-console.log(url.href)
+    stream.respond({':status':404})
+    stream.end()
+}).listen(...listen)
+let aUrl=new url.URL('https://[::1]')
+aUrl.port=listen[0]
+console.log(aUrl.href)
