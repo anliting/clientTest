@@ -1,0 +1,4 @@
+$ . setup
+$ mkdir tls
+Place TLS key and certificates as tls/key and tls/crt.
+$ . start
