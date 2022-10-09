@@ -1,4 +1,3 @@
 $ . setup
-$ mkdir tls
-Place TLS key and certificates as tls/key and tls/crt.
+Place TLS key and certificates as tls/key and tls/crt. You can either create a "tls" directory or link "tls" to another directory.
 $ . start
