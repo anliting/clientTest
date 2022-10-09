@@ -1,1 +1,1 @@
-node start.mjs
+node main/main.mjs
